@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ten-dollar-filter",
+  "prompt": "Are any of the $10 tickets worth buying today or should I just save my money?",
+  "assertions": [
+    "Restricts the analysis to $10 ticket games only.",
+    "Ends with a clear recommendation: either a specific $10 game buy or the exact phrase 'save your money today.'",
+    "Includes per-game metrics and summary stats for the $10-only analysis.",
+    "Does not fabricate results if live data cannot be fetched or parsed."
+  ]
+}

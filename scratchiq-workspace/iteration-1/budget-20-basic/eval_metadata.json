@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "budget-20-basic",
+  "prompt": "I've got $20 to spend on scratch-offs. What's the best play right now?",
+  "assertions": [
+    "States that it is analyzing all active games because no photo was provided.",
+    "Uses only games with ticket price less than or equal to the $20 budget.",
+    "Provides a concrete buy list plus summary stats including total spend and total expected payout.",
+    "Does not fabricate results if live data cannot be fetched or parsed."
+  ]
+}

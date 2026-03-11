@@ -1,0 +1,23 @@
+{
+  "skill_name": "scratchiq",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I've got $20 to spend on scratch-offs. What's the best play right now?",
+      "expected_output": "Fetches live NC data, runs EV calculations on all active games, applies the $20 budget constraint and exclusion filters, and returns a ranked buy list with per-game metrics and summary stats. Should maximize expected payout under the budget, report total expected payout and net expected gain, and avoid fabricating results if live data cannot be fetched or parsed.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Here's a photo of the display at my gas station. I have $50 to burn. What should I grab?",
+      "expected_output": "Identifies scratch-off games visible in the photo (e.g., Jumbo Bucks, Black Titanium, Extreme Cash, 50X, 100X, 20X, Fire & Ice, VIP, etc.), matches them against live fetched data, runs EV math only on those matched games, and returns a $50 budget-optimized buy list. Should show which games were detected from the photo, or explicitly fall back to all active games if none can be identified confidently.",
+      "files": ["fixtures/nc_display_photo.png"]
+    },
+    {
+      "id": 3,
+      "prompt": "Are any of the $10 tickets worth buying today or should I just save my money?",
+      "expected_output": "Fetches live data, filters to only $10 ticket games, and runs full EV analysis. If any $10 game has a favorable EV/dollar or top prize concentration > 1.0, recommends it. If none look good (low EV/dollar, top prizes claimed, pools depleted), explicitly says 'save your money today.' Should not hedge, and should not proceed with made-up numbers if live data fetch or parsing fails.",
+      "files": []
+    }
+  ]
+}
