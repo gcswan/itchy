@@ -21,14 +21,32 @@ If the script fails, tell the user plainly and offer to retry. Do not fabricate 
 
 ## Step 2: Photo Handling (if applicable)
 
-When the user provides a photo of a scratch-off display:
+When the user provides a photo of a scratch-off display or individual tickets:
 
-1. Identify every NC scratch-off game visible by **game number** (3-digit, most reliable) and/or game name. Use ticket colors, artwork, and partial name matches to help.
-2. Match identified games against the JSON output from the script.
-3. Filter your analysis to only the matched games.
-4. If you can't confidently identify any games from the photo, say so and fall back to analyzing all active games.
+1. **Identify Games:** Identify every NC scratch-off game visible by **game number** (3-digit, most reliable) and/or game name. Use ticket colors, artwork, and partial name matches to help.
+2. **Extract Metadata:** Look for **Pack/Book numbers** (usually a 6-7 digit string) and **Ticket numbers** (3 digits, often 000-149 depending on price). 
+   - Note the ticket number currently at the "front" of the dispenser.
+3. **Match and Filter:** Match identified games against the JSON output from the script and filter your analysis to only the available games.
+4. **Failure Case:** If you can't confidently identify any games from the photo, say so and fall back to analyzing all active games.
 
-## Step 3: Understanding the Metrics
+## Step 3: Pack and Ticket "Gap Analysis"
+
+If the user provides specific ticket numbers or you can see them in a photo, layer this expert advice onto the statistical EV:
+
+1. **The "Fresh Book" Signal:** If a dispenser is showing a very low ticket number (e.g., #000, #001, #002), the pack was recently loaded. This is a "neutral" state—no big winners have been pulled yet, but the full range of the pack's guaranteed prizes is still present.
+2. **The "Winner Gap" logic:** NC scratch-offs are seeded such that there is a maximum mathematical "gap" between certain prize tiers in a single pack. 
+   - If the user mentions a $100+ winner was just sold from that specific roll, advise them to **skip** that game at that location, as the probability of a second major winner in the same 30-150 ticket pack is statistically near-zero.
+   - If a pack is deep (e.g., showing ticket #120 of 150) and no major winners have been reported at that store recently, the "density" of the remaining prizes in that specific roll is theoretically higher.
+
+## Step 4: Local Hot/Cold Analysis (Automated)
+
+The skill can now automate the tracking of recent $5,000+ winners. Use this "local intelligence" to advise the user:
+
+1. **The "Lucky Store" Effect:** While mathematically every ticket is independent, if a store has a high density of recent major winners, it indicates high volume. 
+2. **The "Cold Streak" Logic:** Conversely, if a specific store just sold a top-tier winner for the game the user is looking at, **advise them to skip that game at that specific location.** It is statistically unlikely that a second top-tier prize from the same game is sitting in the same retailer's current inventory.
+3. **Retailer Matching:** If the user provides a store name or location (e.g., "The Harris Teeter in Wilmington"), check the `fetch_nc_winners.py` output for matches.
+
+## Step 5: Understanding the Metrics
 
 The script pre-computes the key statistical metrics for each game. For your reference, here is what they mean:
 
