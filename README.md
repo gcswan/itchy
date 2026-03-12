@@ -4,13 +4,23 @@ A Claude Code skill that acts as a real-time NC scratch-off lottery ticket advis
 
 ## Install
 
-Copy the `itchy` directory into your Claude Code personal skills folder
+Run the interactive installer:
 
 ```bash
-cp -r itchy ~/.claude/skills/itchy
+bash install.sh
 ```
 
-Claude Code picks up skills automatically — no restart needed. You can verify it's loaded by starting a new conversation and checking that `itchy` appears in the available skills list.
+The script asks which CLI targets you want to install for and supports:
+
+- Claude Code
+- Gemini CLI
+- Codex CLI
+
+By default it installs via symlink so changes in this repo stay live. If you want standalone copies instead, use:
+
+```bash
+bash install.sh --copy
+```
 
 ## Usage
 
