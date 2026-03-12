@@ -6,6 +6,7 @@ Usage:
     python fetch_nc_data.py                  # prints JSON to stdout
     python fetch_nc_data.py -o data.json     # writes to file
     python fetch_nc_data.py --pretty         # pretty-printed JSON
+    python fetch_nc_data.py --compute-ev --budget 50  # computes EV and optimal buy
 
 The script fetches https://nclottery.com/scratch-off-prizes-remaining,
 parses every active scratch-off game's prize table, and outputs structured
@@ -276,10 +277,150 @@ def fetch_and_parse(url=DATA_URL):
     return parse_html(html, source=url)
 
 
+def compute_ev_metrics(games, budget=None):
+    computed_games = []
+    
+    for game in games:
+        if not game.get("tiers"):
+            continue
+            
+        tiers = game["tiers"]
+        
+        tier_estimates = [t["odds"] * t["total_prizes"] for t in tiers if t["odds"] > 0 and t["total_prizes"] > 0]
+        if not tier_estimates:
+            continue
+            
+        highest_volume_tier = max(tiers, key=lambda t: t["total_prizes"])
+        total_tickets = highest_volume_tier["odds"] * highest_volume_tier["total_prizes"]
+        
+        max_estimate = max(tier_estimates)
+        min_estimate = min(tier_estimates)
+        if max_estimate == 0 or (max_estimate - min_estimate) / max_estimate > 0.05:
+            game["ev_validation_error"] = "Ticket estimates across tiers differ by > 5%"
+            continue
+            
+        mid_tiers = [t for t in tiers if 10 <= t["prize"] <= 50]
+        if not mid_tiers:
+            mid_tiers = tiers
+        mid_tier_anchor = max(mid_tiers, key=lambda t: t["total_prizes"])
+        
+        if mid_tier_anchor["total_prizes"] == 0:
+            continue
+            
+        pct_remaining = mid_tier_anchor["remaining_prizes"] / mid_tier_anchor["total_prizes"]
+        
+        if pct_remaining < 0.15:
+            game["ev_validation_error"] = "Pool depleted (< 15% remaining)"
+            continue
+            
+        top_tier = max(tiers, key=lambda t: t["prize"])
+        if top_tier["remaining_prizes"] <= 0:
+            game["ev_validation_error"] = "All top prizes claimed"
+            continue
+            
+        if budget is not None and game["price"] > budget:
+            game["ev_validation_error"] = "Ticket price exceeds budget"
+            continue
+            
+        remaining_tickets = total_tickets * pct_remaining
+        if remaining_tickets <= 0:
+            continue
+            
+        total_prize_pool = sum(t["prize"] * t["total_prizes"] for t in tiers)
+        payout_ratio = total_prize_pool / (total_tickets * game["price"])
+        
+        if not (0.50 <= payout_ratio <= 0.90):
+            game["ev_validation_error"] = f"Abnormal payout ratio: {payout_ratio:.2f}"
+            continue
+
+        ev = 0
+        p_win = 0
+        for t in tiers:
+            net_value = t["prize"] * 0.7075 if t["prize"] > 600 else t["prize"]
+            prob = t["remaining_prizes"] / remaining_tickets
+            ev += net_value * prob
+            p_win += prob
+            
+        ev_per_dollar = ev / game["price"] if game["price"] > 0 else 0
+        
+        top_remaining_pct = top_tier["remaining_prizes"] / top_tier["total_prizes"] if top_tier["total_prizes"] > 0 else 0
+        top_concentration = top_remaining_pct / pct_remaining if pct_remaining > 0 else 0
+        
+        game["metrics"] = {
+            "total_tickets": total_tickets,
+            "pct_remaining": pct_remaining,
+            "remaining_tickets": remaining_tickets,
+            "ev": ev,
+            "ev_per_dollar": ev_per_dollar,
+            "p_win": p_win,
+            "top_concentration": top_concentration,
+            "payout_ratio": payout_ratio
+        }
+        computed_games.append(game)
+        
+    computed_games.sort(key=lambda g: g["metrics"]["ev_per_dollar"], reverse=True)
+    
+    optimal_buy = []
+    budget_left = budget if budget is not None else float('inf')
+    total_expected_payout = 0
+    total_spend = 0
+    overall_no_win_prob = 1.0
+    
+    if budget is not None and budget > 0:
+        for game in computed_games:
+            price = game["price"]
+            if price <= budget_left:
+                count = int(budget_left // price)
+                budget_left -= count * price
+                spend = count * price
+                expected_payout = count * game["metrics"]["ev"]
+                
+                total_spend += spend
+                total_expected_payout += expected_payout
+                overall_no_win_prob *= (1 - game["metrics"]["p_win"]) ** count
+                
+                optimal_buy.append({
+                    "game_number": game["number"],
+                    "name": game["name"],
+                    "price": price,
+                    "count": count,
+                    "spend": spend,
+                    "expected_payout": expected_payout
+                })
+                if budget_left <= 0:
+                    break
+
+    rankings = []
+    for i, game in enumerate(computed_games):
+        rank_entry = {
+            "game_number": game["number"],
+            "name": game["name"],
+            "price": game["price"],
+            "metrics": game["metrics"]
+        }
+        if i < 5:
+            rank_entry["tiers"] = game["tiers"]
+        rankings.append(rank_entry)
+        
+    return {
+        "rankings": rankings,
+        "optimal_buy": optimal_buy,
+        "summary": {
+            "total_spend": total_spend,
+            "total_expected_payout": total_expected_payout,
+            "net_expected_gain": total_expected_payout - total_spend,
+            "return_rate": total_expected_payout / total_spend if total_spend > 0 else 0,
+            "overall_p_any_win": 1.0 - overall_no_win_prob if total_spend > 0 else 0
+        }
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="Fetch NC Lottery scratch-off prize data")
     parser.add_argument("-o", "--output", help="Output file path (default: stdout)")
     parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON")
+    parser.add_argument("--compute-ev", action="store_true", help="Compute EV metrics and output a summary instead of raw game data")
+    parser.add_argument("--budget", type=int, help="Budget for EV optimization (only used with --compute-ev)")
     args = parser.parse_args()
 
     try:
@@ -288,13 +429,18 @@ def main():
         print(f"Error fetching lottery data: {e}", file=sys.stderr)
         sys.exit(1)
 
+    if args.compute_ev:
+        output_data = compute_ev_metrics(data["games"], args.budget)
+    else:
+        output_data = data
+
     indent = 2 if args.pretty else None
-    json_str = json.dumps(data, indent=indent)
+    json_str = json.dumps(output_data, indent=indent)
 
     if args.output:
         with open(args.output, "w", encoding="utf-8") as f:
             f.write(json_str)
-        print(f"Wrote {data['game_count']} games to {args.output}", file=sys.stderr)
+        print(f"Wrote output to {args.output}", file=sys.stderr)
     else:
         print(json_str)
 

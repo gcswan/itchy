@@ -1,0 +1,1399 @@
+{
+  "rankings": [
+    {
+      "game_number": 994,
+      "name": "$25,000 Triple Play",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 6842839.18,
+        "pct_remaining": 0.1761897976631519,
+        "remaining_tickets": 1205638.4505656883,
+        "ev": 1.6483896968179186,
+        "ev_per_dollar": 0.8241948484089593,
+        "p_win": 0.31128569250915095,
+        "top_concentration": 2.8378487666801453,
+        "payout_ratio": 0.6629291410586681
+      },
+      "tiers": [
+        {
+          "prize": 25000.0,
+          "odds": 1710637.5,
+          "total_prizes": 4,
+          "remaining_prizes": 2
+        },
+        {
+          "prize": 3000.0,
+          "odds": 855318.75,
+          "total_prizes": 8,
+          "remaining_prizes": 3
+        },
+        {
+          "prize": 1000.0,
+          "odds": 235950.0,
+          "total_prizes": 29,
+          "remaining_prizes": 9
+        },
+        {
+          "prize": 500.0,
+          "odds": 46866.78,
+          "total_prizes": 146,
+          "remaining_prizes": 42
+        },
+        {
+          "prize": 100.0,
+          "odds": 4394.7,
+          "total_prizes": 1557,
+          "remaining_prizes": 250
+        },
+        {
+          "prize": 50.0,
+          "odds": 2997.17,
+          "total_prizes": 2283,
+          "remaining_prizes": 383
+        },
+        {
+          "prize": 40.0,
+          "odds": 1988.54,
+          "total_prizes": 3441,
+          "remaining_prizes": 809
+        },
+        {
+          "prize": 20.0,
+          "odds": 37.5,
+          "total_prizes": 182468,
+          "remaining_prizes": 32149
+        },
+        {
+          "prize": 10.0,
+          "odds": 60.01,
+          "total_prizes": 114027,
+          "remaining_prizes": 22684
+        },
+        {
+          "prize": 5.0,
+          "odds": 74.97,
+          "total_prizes": 91265,
+          "remaining_prizes": 23226
+        },
+        {
+          "prize": 4.0,
+          "odds": 13.64,
+          "total_prizes": 501814,
+          "remaining_prizes": 132155
+        },
+        {
+          "prize": 2.0,
+          "odds": 11.54,
+          "total_prizes": 592967,
+          "remaining_prizes": 163586
+        }
+      ]
+    },
+    {
+      "game_number": 972,
+      "name": "$8 Million Money Maker",
+      "price": 50,
+      "metrics": {
+        "total_tickets": 15221928.56,
+        "pct_remaining": 0.38495299836041275,
+        "remaining_tickets": 5859727.04,
+        "ev": 41.13770758509598,
+        "ev_per_dollar": 0.8227541517019197,
+        "p_win": 0.24128973761890452,
+        "top_concentration": 1.558631839615519,
+        "payout_ratio": 0.8200870836303544
+      },
+      "tiers": [
+        {
+          "prize": 8000000.0,
+          "odds": 3042264.0,
+          "total_prizes": 5,
+          "remaining_prizes": 3
+        },
+        {
+          "prize": 100000.0,
+          "odds": 1521132.0,
+          "total_prizes": 10,
+          "remaining_prizes": 4
+        },
+        {
+          "prize": 25000.0,
+          "odds": 380283.0,
+          "total_prizes": 40,
+          "remaining_prizes": 15
+        },
+        {
+          "prize": 10000.0,
+          "odds": 121690.56,
+          "total_prizes": 125,
+          "remaining_prizes": 52
+        },
+        {
+          "prize": 5000.0,
+          "odds": 58730.97,
+          "total_prizes": 259,
+          "remaining_prizes": 102
+        },
+        {
+          "prize": 2000.0,
+          "odds": 23330.25,
+          "total_prizes": 652,
+          "remaining_prizes": 260
+        },
+        {
+          "prize": 500.0,
+          "odds": 99.96,
+          "total_prizes": 152169,
+          "remaining_prizes": 58519
+        },
+        {
+          "prize": 400.0,
+          "odds": 153.82,
+          "total_prizes": 98889,
+          "remaining_prizes": 37880
+        },
+        {
+          "prize": 250.0,
+          "odds": 40.0,
+          "total_prizes": 380307,
+          "remaining_prizes": 146502
+        },
+        {
+          "prize": 200.0,
+          "odds": 24.0,
+          "total_prizes": 633731,
+          "remaining_prizes": 243383
+        },
+        {
+          "prize": 100.0,
+          "odds": 6.32,
+          "total_prizes": 2408533,
+          "remaining_prizes": 927172
+        }
+      ]
+    },
+    {
+      "game_number": 32,
+      "name": "500X The Cash",
+      "price": 50,
+      "metrics": {
+        "total_tickets": 16298335.2,
+        "pct_remaining": 0.9438437361053617,
+        "remaining_tickets": 15383081.587465527,
+        "ev": 40.30943939771194,
+        "ev_per_dollar": 0.8061887879542389,
+        "p_win": 0.3005467385525144,
+        "top_concentration": 1.059497416517653,
+        "payout_ratio": 0.824678032146498
+      },
+      "tiers": [
+        {
+          "prize": 10000000.0,
+          "odds": 3261006.0,
+          "total_prizes": 5,
+          "remaining_prizes": 5
+        },
+        {
+          "prize": 250000.0,
+          "odds": 1630503.0,
+          "total_prizes": 10,
+          "remaining_prizes": 10
+        },
+        {
+          "prize": 50000.0,
+          "odds": 543501.0,
+          "total_prizes": 30,
+          "remaining_prizes": 27
+        },
+        {
+          "prize": 10000.0,
+          "odds": 271750.5,
+          "total_prizes": 60,
+          "remaining_prizes": 56
+        },
+        {
+          "prize": 4000.0,
+          "odds": 31476.89,
+          "total_prizes": 518,
+          "remaining_prizes": 493
+        },
+        {
+          "prize": 2000.0,
+          "odds": 24048.72,
+          "total_prizes": 678,
+          "remaining_prizes": 642
+        },
+        {
+          "prize": 500.0,
+          "odds": 47.99,
+          "total_prizes": 339734,
+          "remaining_prizes": 320621
+        },
+        {
+          "prize": 250.0,
+          "odds": 158.91,
+          "total_prizes": 102608,
+          "remaining_prizes": 96800
+        },
+        {
+          "prize": 200.0,
+          "odds": 30.0,
+          "total_prizes": 543501,
+          "remaining_prizes": 512565
+        },
+        {
+          "prize": 100.0,
+          "odds": 7.14,
+          "total_prizes": 2282680,
+          "remaining_prizes": 2153108
+        },
+        {
+          "prize": 50.0,
+          "odds": 10.0,
+          "total_prizes": 1630575,
+          "remaining_prizes": 1539008
+        }
+      ]
+    },
+    {
+      "game_number": 876,
+      "name": "$5,000,000 Ultimate",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 16676190.0,
+        "pct_remaining": 0.28184375447869087,
+        "remaining_tickets": 4700080.0,
+        "ev": 24.08677033156882,
+        "ev_per_dollar": 0.8028923443856274,
+        "p_win": 0.3266944392435873,
+        "top_concentration": 2.1288390835900666,
+        "payout_ratio": 0.7988045430840818
+      },
+      "tiers": [
+        {
+          "prize": 5000000.0,
+          "odds": 3334878.0,
+          "total_prizes": 5,
+          "remaining_prizes": 3
+        },
+        {
+          "prize": 100000.0,
+          "odds": 1111626.0,
+          "total_prizes": 15,
+          "remaining_prizes": 4
+        },
+        {
+          "prize": 50000.0,
+          "odds": 666975.6,
+          "total_prizes": 25,
+          "remaining_prizes": 7
+        },
+        {
+          "prize": 20000.0,
+          "odds": 555813.0,
+          "total_prizes": 30,
+          "remaining_prizes": 7
+        },
+        {
+          "prize": 5000.0,
+          "odds": 277906.5,
+          "total_prizes": 60,
+          "remaining_prizes": 16
+        },
+        {
+          "prize": 1000.0,
+          "odds": 6019.64,
+          "total_prizes": 2770,
+          "remaining_prizes": 771
+        },
+        {
+          "prize": 500.0,
+          "odds": 199.93,
+          "total_prizes": 83401,
+          "remaining_prizes": 22756
+        },
+        {
+          "prize": 200.0,
+          "odds": 42.42,
+          "total_prizes": 393108,
+          "remaining_prizes": 107168
+        },
+        {
+          "prize": 100.0,
+          "odds": 20.0,
+          "total_prizes": 833677,
+          "remaining_prizes": 228378
+        },
+        {
+          "prize": 50.0,
+          "odds": 13.64,
+          "total_prizes": 1222412,
+          "remaining_prizes": 336097
+        },
+        {
+          "prize": 40.0,
+          "odds": 12.5,
+          "total_prizes": 1334288,
+          "remaining_prizes": 370275
+        },
+        {
+          "prize": 30.0,
+          "odds": 10.0,
+          "total_prizes": 1667619,
+          "remaining_prizes": 470008
+        }
+      ]
+    },
+    {
+      "game_number": 917,
+      "name": "$2,000,000 Diamond Deluxe",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 6145366.92,
+        "pct_remaining": 0.17021183822169564,
+        "remaining_tickets": 1046014.2,
+        "ev": 16.03031775285651,
+        "ev_per_dollar": 0.8015158876428256,
+        "p_win": 0.29929517209231005,
+        "top_concentration": 2.937516010776909,
+        "payout_ratio": 0.7746310451386359
+      },
+      "tiers": [
+        {
+          "prize": 2000000.0,
+          "odds": 1535557.5,
+          "total_prizes": 4,
+          "remaining_prizes": 2
+        },
+        {
+          "prize": 100000.0,
+          "odds": 767778.75,
+          "total_prizes": 8,
+          "remaining_prizes": 1
+        },
+        {
+          "prize": 10000.0,
+          "odds": 204741.0,
+          "total_prizes": 30,
+          "remaining_prizes": 4
+        },
+        {
+          "prize": 5000.0,
+          "odds": 58497.43,
+          "total_prizes": 105,
+          "remaining_prizes": 16
+        },
+        {
+          "prize": 2000.0,
+          "odds": 39122.48,
+          "total_prizes": 157,
+          "remaining_prizes": 24
+        },
+        {
+          "prize": 500.0,
+          "odds": 1993.58,
+          "total_prizes": 3081,
+          "remaining_prizes": 493
+        },
+        {
+          "prize": 200.0,
+          "odds": 200.35,
+          "total_prizes": 30658,
+          "remaining_prizes": 4767
+        },
+        {
+          "prize": 100.0,
+          "odds": 21.58,
+          "total_prizes": 284589,
+          "remaining_prizes": 44566
+        },
+        {
+          "prize": 50.0,
+          "odds": 20.01,
+          "total_prizes": 307021,
+          "remaining_prizes": 49965
+        },
+        {
+          "prize": 40.0,
+          "odds": 29.99,
+          "total_prizes": 204812,
+          "remaining_prizes": 32876
+        },
+        {
+          "prize": 30.0,
+          "odds": 14.99,
+          "total_prizes": 409755,
+          "remaining_prizes": 67148
+        },
+        {
+          "prize": 20.0,
+          "odds": 9.24,
+          "total_prizes": 665083,
+          "remaining_prizes": 113205
+        }
+      ]
+    },
+    {
+      "game_number": 976,
+      "name": "100X The Cash",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 6162240.0,
+        "pct_remaining": 0.20675436205016356,
+        "remaining_tickets": 1274070.0,
+        "ev": 15.89831406437637,
+        "ev_per_dollar": 0.7949157032188185,
+        "p_win": 0.29749307337901376,
+        "top_concentration": 2.4183286632602607,
+        "payout_ratio": 0.7759503849249624
+      }
+    },
+    {
+      "game_number": 24,
+      "name": "200X The Cash",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 7778740.0,
+        "pct_remaining": 0.7655172945746997,
+        "remaining_tickets": 5954760.0,
+        "ev": 23.80440563515574,
+        "ev_per_dollar": 0.7934801878385246,
+        "p_win": 0.3309082146047868,
+        "top_concentration": 1.3063062155317762,
+        "payout_ratio": 0.8043369063198753
+      }
+    },
+    {
+      "game_number": 952,
+      "name": "Millionaire Bucks",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 11116350.0,
+        "pct_remaining": 0.5913928582673269,
+        "remaining_tickets": 6574129.999999999,
+        "ev": 23.712811048762347,
+        "ev_per_dollar": 0.7904270349587449,
+        "p_win": 0.3273608827327723,
+        "top_concentration": 1.2681925212917908,
+        "payout_ratio": 0.8030522908448666
+      }
+    },
+    {
+      "game_number": 951,
+      "name": "Win Big",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 5187315.38,
+        "pct_remaining": 0.29183674195649156,
+        "remaining_tickets": 1513849.22,
+        "ev": 15.763126990942995,
+        "ev_per_dollar": 0.7881563495471497,
+        "p_win": 0.2759317073862878,
+        "top_concentration": 2.284382227533422,
+        "payout_ratio": 0.7718227458150039
+      }
+    },
+    {
+      "game_number": 4,
+      "name": "Carolina Black Premier",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 7385616.0,
+        "pct_remaining": 0.5717259061397181,
+        "remaining_tickets": 4222548.0,
+        "ev": 23.597749510485137,
+        "ev_per_dollar": 0.7865916503495046,
+        "p_win": 0.23874873654485396,
+        "top_concentration": 1.1660599240079685,
+        "payout_ratio": 0.8011528535105715
+      }
+    },
+    {
+      "game_number": 925,
+      "name": "200X The Cash",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 14812590.0,
+        "pct_remaining": 0.4665821439734712,
+        "remaining_tickets": 6911290.0,
+        "ev": 23.43406296074973,
+        "ev_per_dollar": 0.781135432024991,
+        "p_win": 0.33748272753711683,
+        "top_concentration": 1.2859471965436264,
+        "payout_ratio": 0.8016143024278671
+      }
+    },
+    {
+      "game_number": 985,
+      "name": "MAX-A-MILLION",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 9100100.0,
+        "pct_remaining": 0.5816595422028329,
+        "remaining_tickets": 5293160.0,
+        "ev": 23.333493130757432,
+        "ev_per_dollar": 0.7777831043585811,
+        "p_win": 0.33718081448510906,
+        "top_concentration": 0.9627625085959995,
+        "payout_ratio": 0.8151332402940628
+      }
+    },
+    {
+      "game_number": 7,
+      "name": "Cashword King",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 4835010.0,
+        "pct_remaining": 0.28582567564493144,
+        "remaining_tickets": 1381970.0,
+        "ev": 7.679112064661316,
+        "ev_per_dollar": 0.7679112064661316,
+        "p_win": 0.28563572291728473,
+        "top_concentration": 1.7493180025615607,
+        "payout_ratio": 0.7580209761717143
+      }
+    },
+    {
+      "game_number": 940,
+      "name": "Supreme 7s",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 9050256.0,
+        "pct_remaining": 0.33985292791717714,
+        "remaining_tickets": 3075756.0,
+        "ev": 23.006963978937208,
+        "ev_per_dollar": 0.7668987992979069,
+        "p_win": 0.23808975744499888,
+        "top_concentration": 0.7356123177521234,
+        "payout_ratio": 0.803529903831818
+      }
+    },
+    {
+      "game_number": 35,
+      "name": "$100,000 Cash Payday",
+      "price": 30,
+      "metrics": {
+        "total_tickets": 6140430.0,
+        "pct_remaining": 0.9631687031689963,
+        "remaining_tickets": 5914270.0,
+        "ev": 22.980876338077227,
+        "ev_per_dollar": 0.766029211269241,
+        "p_win": 0.28609042197938206,
+        "top_concentration": 1.0382397151296778,
+        "payout_ratio": 0.7791549343178463
+      }
+    },
+    {
+      "game_number": 904,
+      "name": "Power 20s",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 7410213.33,
+        "pct_remaining": 0.5091728742443641,
+        "remaining_tickets": 3773079.6200000006,
+        "ev": 15.318317745969004,
+        "ev_per_dollar": 0.7659158872984502,
+        "p_win": 0.30938811728547616,
+        "top_concentration": 1.4729771320065594,
+        "payout_ratio": 0.7706118900628196
+      }
+    },
+    {
+      "game_number": 14,
+      "name": "Magnificent Millions",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 5054508.46,
+        "pct_remaining": 0.5569190797239263,
+        "remaining_tickets": 2814952.1999999997,
+        "ev": 15.31276978699674,
+        "ev_per_dollar": 0.7656384893498369,
+        "p_win": 0.21278087777121046,
+        "top_concentration": 1.795592997991227,
+        "payout_ratio": 0.7619282924298438
+      }
+    },
+    {
+      "game_number": 975,
+      "name": "$1,000,000 Money Rush",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 5417570.0,
+        "pct_remaining": 0.32698054662883913,
+        "remaining_tickets": 1771440.0,
+        "ev": 7.584456713182496,
+        "ev_per_dollar": 0.7584456713182496,
+        "p_win": 0.26725432416565054,
+        "top_concentration": 1.529142957142212,
+        "payout_ratio": 0.7535073843069864
+      }
+    },
+    {
+      "game_number": 932,
+      "name": "Instant Millions",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 6918226.510000001,
+        "pct_remaining": 0.34916621861228997,
+        "remaining_tickets": 2415610.99,
+        "ev": 15.142691704677166,
+        "ev_per_dollar": 0.7571345852338582,
+        "p_win": 0.2902027697762709,
+        "top_concentration": 1.4319827444567141,
+        "payout_ratio": 0.7722343280142181
+      }
+    },
+    {
+      "game_number": 8,
+      "name": "Ruby Red 7's",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 5120604.2700000005,
+        "pct_remaining": 0.45629207937210897,
+        "remaining_tickets": 2336491.1700000004,
+        "ev": 15.082887088334253,
+        "ev_per_dollar": 0.7541443544167127,
+        "p_win": 0.2856672469256539,
+        "top_concentration": 1.461052463553714,
+        "payout_ratio": 0.7730020308716415
+      }
+    },
+    {
+      "game_number": 996,
+      "name": "$1,000,000 Triple Play",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 7343240.89,
+        "pct_remaining": 0.49231909781458905,
+        "remaining_tickets": 3615217.73,
+        "ev": 7.472403328803104,
+        "ev_per_dollar": 0.7472403328803103,
+        "p_win": 0.26101913369405827,
+        "top_concentration": 1.6249623537888547,
+        "payout_ratio": 0.751711823524286
+      }
+    },
+    {
+      "game_number": 27,
+      "name": "Stacks of Cash",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 4416139.65,
+        "pct_remaining": 0.7411668808978901,
+        "remaining_tickets": 3273096.45,
+        "ev": 14.902814733736307,
+        "ev_per_dollar": 0.7451407366868154,
+        "p_win": 0.2975735713501507,
+        "top_concentration": 0.8994825373997152,
+        "payout_ratio": 0.7761465378478237
+      }
+    },
+    {
+      "game_number": 948,
+      "name": "JUMBO BUCKS",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 11182963.819999998,
+        "pct_remaining": 0.18487606892749475,
+        "remaining_tickets": 2067462.3899999997,
+        "ev": 7.448010940600473,
+        "ev_per_dollar": 0.7448010940600474,
+        "p_win": 0.26994058160351836,
+        "top_concentration": 1.3522572253418357,
+        "payout_ratio": 0.7535243013957995
+      }
+    },
+    {
+      "game_number": 23,
+      "name": "$10 MONOPOLY\u00ae",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 5428406.43,
+        "pct_remaining": 0.5899067730637848,
+        "remaining_tickets": 3202253.72,
+        "ev": 7.427572759600072,
+        "ev_per_dollar": 0.7427572759600072,
+        "p_win": 0.26241612110610646,
+        "top_concentration": 1.2713873348236753,
+        "payout_ratio": 0.7532098144685162
+      }
+    },
+    {
+      "game_number": 946,
+      "name": "Junior BIG OL' BUCKS\u00ae",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 13338601.319999998,
+        "pct_remaining": 0.15565059117747163,
+        "remaining_tickets": 2076161.1809386031,
+        "ev": 1.476350212180681,
+        "ev_per_dollar": 0.7381751060903405,
+        "p_win": 0.26666667553706297,
+        "top_concentration": 1.4276991853429333,
+        "payout_ratio": 0.6626230358011781
+      }
+    },
+    {
+      "game_number": 992,
+      "name": "$2 MILLION VAULT",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 5187739.96,
+        "pct_remaining": 0.3674553244183812,
+        "remaining_tickets": 1906262.67,
+        "ev": 14.671523468484017,
+        "ev_per_dollar": 0.7335761734242008,
+        "p_win": 0.29416617595517414,
+        "top_concentration": 0.9071397559987541,
+        "payout_ratio": 0.7720964294440078
+      }
+    },
+    {
+      "game_number": 34,
+      "name": "LOTERIA\u2122 MULTIPLIER",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 4929281.5,
+        "pct_remaining": 0.9502836813032488,
+        "remaining_tickets": 4684215.7700000005,
+        "ev": 7.328060167476016,
+        "ev_per_dollar": 0.7328060167476016,
+        "p_win": 0.2755545567022417,
+        "top_concentration": 1.0523173444676737,
+        "payout_ratio": 0.7563335549004454
+      }
+    },
+    {
+      "game_number": 11,
+      "name": "$1,000,000 Bonus Match",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 7398812.680000001,
+        "pct_remaining": 0.34186205130415603,
+        "remaining_tickets": 2529373.2800000003,
+        "ev": 7.3224976900206675,
+        "ev_per_dollar": 0.7322497690020667,
+        "p_win": 0.2695616362326718,
+        "top_concentration": 1.1700625982733557,
+        "payout_ratio": 0.7505448833717465
+      }
+    },
+    {
+      "game_number": 31,
+      "name": "50X The Cash",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 20548280.0,
+        "pct_remaining": 0.9145213127327445,
+        "remaining_tickets": 18791840.0,
+        "ev": 7.301709611725089,
+        "ev_per_dollar": 0.7301709611725089,
+        "p_win": 0.262891020783489,
+        "top_concentration": 1.0934682287631228,
+        "payout_ratio": 0.7475830093808338
+      }
+    },
+    {
+      "game_number": 944,
+      "name": "$50,000 Payout",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 5559783.199999999,
+        "pct_remaining": 0.43729776189834163,
+        "remaining_tickets": 2431280.7499999995,
+        "ev": 14.516319228044727,
+        "ev_per_dollar": 0.7258159614022364,
+        "p_win": 0.2798335815392773,
+        "top_concentration": 0.9833116870604105,
+        "payout_ratio": 0.7487827043327877
+      }
+    },
+    {
+      "game_number": 939,
+      "name": "$80 Million Cash Blowout",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 11494770.0,
+        "pct_remaining": 0.17114696509804023,
+        "remaining_tickets": 1967294.9999999998,
+        "ev": 7.246727104984256,
+        "ev_per_dollar": 0.7246727104984256,
+        "p_win": 0.10049585852655551,
+        "top_concentration": 0.9944036779240754,
+        "payout_ratio": 0.7251306463722197
+      }
+    },
+    {
+      "game_number": 978,
+      "name": "10X The Cash",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 8529792.0,
+        "pct_remaining": 0.22446200766730143,
+        "remaining_tickets": 1914614.2373044863,
+        "ev": 1.436594613373585,
+        "ev_per_dollar": 0.7182973066867925,
+        "p_win": 0.24827925685397606,
+        "top_concentration": 2.2275484621927744,
+        "payout_ratio": 0.6631698053129549
+      }
+    },
+    {
+      "game_number": 988,
+      "name": "Emerald 10's",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 7360762.789999999,
+        "pct_remaining": 0.4020166325723967,
+        "remaining_tickets": 2959149.0699999994,
+        "ev": 7.104796684000784,
+        "ev_per_dollar": 0.7104796684000785,
+        "p_win": 0.2592833216070457,
+        "top_concentration": 0.9949837086105299,
+        "payout_ratio": 0.7516500881561489
+      }
+    },
+    {
+      "game_number": 929,
+      "name": "Ultimate Dash",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 8060315.760000001,
+        "pct_remaining": 0.2558958186521467,
+        "remaining_tickets": 2062601.1000000003,
+        "ev": 7.043035369272323,
+        "ev_per_dollar": 0.7043035369272322,
+        "p_win": 0.26718835745796893,
+        "top_concentration": 0.6513067214014381,
+        "payout_ratio": 0.7540430401203041
+      }
+    },
+    {
+      "game_number": 1,
+      "name": "5 Times Lucky",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6083911.079999999,
+        "pct_remaining": 0.2191220201390355,
+        "remaining_tickets": 1333118.886195861,
+        "ev": 3.516288043429081,
+        "ev_per_dollar": 0.7032576086858162,
+        "p_win": 0.24100701244794764,
+        "top_concentration": 1.8254669236172398,
+        "payout_ratio": 0.6894200038176759
+      }
+    },
+    {
+      "game_number": 3,
+      "name": "Hot $2,000",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 6140130.0,
+        "pct_remaining": 0.3421653938923117,
+        "remaining_tickets": 2100940.0,
+        "ev": 7.026940321951127,
+        "ev_per_dollar": 0.7026940321951127,
+        "p_win": 0.26502137138614146,
+        "top_concentration": 1.016047374181319,
+        "payout_ratio": 0.7251870888727112
+      }
+    },
+    {
+      "game_number": 993,
+      "name": "$5,000 Triple Play",
+      "price": 1,
+      "metrics": {
+        "total_tickets": 8378880.0,
+        "pct_remaining": 0.200055867522347,
+        "remaining_tickets": 1676244.1072656428,
+        "ev": 0.6987126725298561,
+        "ev_per_dollar": 0.6987126725298561,
+        "p_win": 0.25132318030170875,
+        "top_concentration": 3.332402467986586,
+        "payout_ratio": 0.604792048579285
+      }
+    },
+    {
+      "game_number": 928,
+      "name": "$400,000 Jackpot",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 10294599.63,
+        "pct_remaining": 0.1935582464547044,
+        "remaining_tickets": 1992604.652336049,
+        "ev": 3.4880501718450496,
+        "ev_per_dollar": 0.6976100343690099,
+        "p_win": 0.2342301065355975,
+        "top_concentration": 2.066561395996146,
+        "payout_ratio": 0.6898305184501866
+      }
+    },
+    {
+      "game_number": 17,
+      "name": "White Elephant",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 4188085.26,
+        "pct_remaining": 0.20257918146810353,
+        "remaining_tickets": 848418.8838894295,
+        "ev": 1.3946436394433277,
+        "ev_per_dollar": 0.6973218197216638,
+        "p_win": 0.25884383783779674,
+        "top_concentration": 1.6454471329069777,
+        "payout_ratio": 0.6633520636587996
+      }
+    },
+    {
+      "game_number": 984,
+      "name": "Lucky Loteria\u00ae",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 4836141.57,
+        "pct_remaining": 0.3423225863092341,
+        "remaining_tickets": 1655520.4900000002,
+        "ev": 6.933009932121105,
+        "ev_per_dollar": 0.6933009932121105,
+        "p_win": 0.2692319440878681,
+        "top_concentration": 0.7303053026543936,
+        "payout_ratio": 0.7577766173623407
+      }
+    },
+    {
+      "game_number": 959,
+      "name": "LOTERIA\u00ae",
+      "price": 3,
+      "metrics": {
+        "total_tickets": 9270017.35,
+        "pct_remaining": 0.15907540939416404,
+        "remaining_tickets": 1474631.8050422536,
+        "ev": 2.068373264140064,
+        "ev_per_dollar": 0.6894577547133546,
+        "p_win": 0.27325193897364375,
+        "top_concentration": 2.3573725280870317,
+        "payout_ratio": 0.6630056990490243
+      }
+    },
+    {
+      "game_number": 33,
+      "name": "$500 Frenzy",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 9883930.0,
+        "pct_remaining": 0.9347678504400577,
+        "remaining_tickets": 9239180.0,
+        "ev": 3.444589238438909,
+        "ev_per_dollar": 0.6889178476877819,
+        "p_win": 0.22884281938440426,
+        "top_concentration": 0.9972742000817526,
+        "payout_ratio": 0.6901399544513165
+      }
+    },
+    {
+      "game_number": 2,
+      "name": "LOTERIA\u00ae Fiesta",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 7327640.0,
+        "pct_remaining": 0.4485038119991754,
+        "remaining_tickets": 3286474.4729576376,
+        "ev": 3.4106875292149827,
+        "ev_per_dollar": 0.6821375058429966,
+        "p_win": 0.25969835062552804,
+        "top_concentration": 1.4864236352753504,
+        "payout_ratio": 0.6895533896315867
+      }
+    },
+    {
+      "game_number": 983,
+      "name": "Lucky $50s",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6077927.3100000005,
+        "pct_remaining": 0.30516464008188343,
+        "remaining_tickets": 1854768.5,
+        "ev": 3.3989282220395696,
+        "ev_per_dollar": 0.6797856444079139,
+        "p_win": 0.2549320845162078,
+        "top_concentration": 0.9611094937984795,
+        "payout_ratio": 0.6899106860164143
+      }
+    },
+    {
+      "game_number": 991,
+      "name": "SPICY HOT RICHES",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6721538.89,
+        "pct_remaining": 0.40265721946506383,
+        "remaining_tickets": 2706476.159973691,
+        "ev": 3.3972320303347425,
+        "ev_per_dollar": 0.6794464060669485,
+        "p_win": 0.23592042281510683,
+        "top_concentration": 1.2417509877613955,
+        "payout_ratio": 0.6903646733196244
+      }
+    },
+    {
+      "game_number": 947,
+      "name": "MEGA BUCKS",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 11110308.0,
+        "pct_remaining": 0.17825239257707015,
+        "remaining_tickets": 1980438.9832681632,
+        "ev": 3.3923362733010296,
+        "ev_per_dollar": 0.678467254660206,
+        "p_win": 0.23748371142637503,
+        "top_concentration": 1.870007625222823,
+        "payout_ratio": 0.6894185111699873
+      }
+    },
+    {
+      "game_number": 19,
+      "name": "Holiday Cashword",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 3706000.0,
+        "pct_remaining": 0.5273673883692241,
+        "remaining_tickets": 1954423.5412963447,
+        "ev": 3.3898806272081368,
+        "ev_per_dollar": 0.6779761254416273,
+        "p_win": 0.2579937200641531,
+        "top_concentration": 0.6320704326524599,
+        "payout_ratio": 0.6891276308688613
+      }
+    },
+    {
+      "game_number": 986,
+      "name": "Hit $100",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 6792387.84,
+        "pct_remaining": 0.2681662937227653,
+        "remaining_tickets": 1821489.4725803793,
+        "ev": 1.3556883183638773,
+        "ev_per_dollar": 0.6778441591819386,
+        "p_win": 0.22863431618412633,
+        "top_concentration": 1.8645147123407992,
+        "payout_ratio": 0.6632511432091605
+      }
+    },
+    {
+      "game_number": 22,
+      "name": "$5 MONOPOLY\u00ae",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6175065.539999999,
+        "pct_remaining": 0.569477866370178,
+        "remaining_tickets": 3516563.1484152107,
+        "ev": 3.3867335797360156,
+        "ev_per_dollar": 0.6773467159472031,
+        "p_win": 0.23484947238106246,
+        "top_concentration": 1.053596698716964,
+        "payout_ratio": 0.6894747873396662
+      }
+    },
+    {
+      "game_number": 990,
+      "name": "LADY LUCK",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 6544612.5,
+        "pct_remaining": 0.3490410393895649,
+        "remaining_tickets": 2284338.3494019387,
+        "ev": 1.3533759133402463,
+        "ev_per_dollar": 0.6766879566701232,
+        "p_win": 0.22942573289863588,
+        "top_concentration": 1.4324963072378138,
+        "payout_ratio": 0.6632102359001393
+      }
+    },
+    {
+      "game_number": 30,
+      "name": "20X The Cash",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 21395749.099999998,
+        "pct_remaining": 0.9032568532057113,
+        "remaining_tickets": 19325857.004044928,
+        "ev": 3.3796705618969174,
+        "ev_per_dollar": 0.6759341123793835,
+        "p_win": 0.22916743092288402,
+        "top_concentration": 0.9594908287612943,
+        "payout_ratio": 0.6893972223669421
+      }
+    },
+    {
+      "game_number": 980,
+      "name": "20X The Cash",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 11648759.74,
+        "pct_remaining": 0.2990129539980071,
+        "remaining_tickets": 3483130.060270457,
+        "ev": 3.379231408627349,
+        "ev_per_dollar": 0.6758462817254698,
+        "p_win": 0.23884092342374486,
+        "top_concentration": 1.254126267728519,
+        "payout_ratio": 0.6896181378361916
+      }
+    },
+    {
+      "game_number": 9,
+      "name": "Spooky Loot",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 4687687.5,
+        "pct_remaining": 0.28293001292502207,
+        "remaining_tickets": 1326287.4849634643,
+        "ev": 1.3470989662917743,
+        "ev_per_dollar": 0.6735494831458871,
+        "p_win": 0.2319278463284856,
+        "top_concentration": 0.8836107467547153,
+        "payout_ratio": 0.6627329573483728
+      }
+    },
+    {
+      "game_number": 21,
+      "name": "Winter Winfall",
+      "price": 20,
+      "metrics": {
+        "total_tickets": 1457175.72,
+        "pct_remaining": 0.19152034731953949,
+        "remaining_tickets": 279078.8,
+        "ev": 13.467343273656043,
+        "ev_per_dollar": 0.6733671636828021,
+        "p_win": 0.2896278757110895,
+        "top_concentration": 1.7404591104734575,
+        "payout_ratio": 0.7496539264324278
+      }
+    },
+    {
+      "game_number": 13,
+      "name": "High Voltage Cash",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6024993.03,
+        "pct_remaining": 0.4404015582607529,
+        "remaining_tickets": 2653416.318922175,
+        "ev": 3.3657081764039365,
+        "ev_per_dollar": 0.6731416352807873,
+        "p_win": 0.23629235846965838,
+        "top_concentration": 1.135327499690544,
+        "payout_ratio": 0.689663702399337
+      }
+    },
+    {
+      "game_number": 12,
+      "name": "Cash Drop",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 6882732.959999999,
+        "pct_remaining": 0.5942465723565186,
+        "remaining_tickets": 4090040.4699252346,
+        "ev": 1.341974251932117,
+        "ev_per_dollar": 0.6709871259660585,
+        "p_win": 0.22238899753885003,
+        "top_concentration": 1.682803143540977,
+        "payout_ratio": 0.6628220979243107
+      }
+    },
+    {
+      "game_number": 26,
+      "name": "Cash King",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 5368263.12,
+        "pct_remaining": 0.5801712093885741,
+        "remaining_tickets": 3114511.70664648,
+        "ev": 3.354037802364799,
+        "ev_per_dollar": 0.6708075604729598,
+        "p_win": 0.23177308932874607,
+        "top_concentration": 0.861814567680695,
+        "payout_ratio": 0.6894781267725938
+      }
+    },
+    {
+      "game_number": 10,
+      "name": "Double Your Money",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6054157.5,
+        "pct_remaining": 0.317673846443539,
+        "remaining_tickets": 1923247.5,
+        "ev": 3.3488045610354362,
+        "ev_per_dollar": 0.6697609122070872,
+        "p_win": 0.1985605076829685,
+        "top_concentration": 1.259153073122414,
+        "payout_ratio": 0.6898766673975694
+      }
+    },
+    {
+      "game_number": 25,
+      "name": "777",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 6900920.88,
+        "pct_remaining": 0.6555112189448777,
+        "remaining_tickets": 4523631.057890958,
+        "ev": 1.3382175563235161,
+        "ev_per_dollar": 0.6691087781617581,
+        "p_win": 0.21963373831446298,
+        "top_concentration": 1.1441451775718088,
+        "payout_ratio": 0.6627358260626806
+      }
+    },
+    {
+      "game_number": 987,
+      "name": "Prize Link Multiplier",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6168604.47,
+        "pct_remaining": 0.31733817584190155,
+        "remaining_tickets": 1957533.6899999997,
+        "ev": 3.3267933181778346,
+        "ev_per_dollar": 0.665358663635567,
+        "p_win": 0.2339954619120757,
+        "top_concentration": 0.6302424833362639,
+        "payout_ratio": 0.6890496903588957
+      }
+    },
+    {
+      "game_number": 949,
+      "name": "Xtreme Cashword",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 10306660.0,
+        "pct_remaining": 0.2548299708121901,
+        "remaining_tickets": 2626445.8669711673,
+        "ev": 3.3025133352558913,
+        "ev_per_dollar": 0.6605026670511782,
+        "p_win": 0.26125609845189807,
+        "top_concentration": 0.8720411555750645,
+        "payout_ratio": 0.6897054914007059
+      }
+    },
+    {
+      "game_number": 29,
+      "name": "10X The Cash",
+      "price": 2,
+      "metrics": {
+        "total_tickets": 19133111.91,
+        "pct_remaining": 0.9109269667620147,
+        "remaining_tickets": 17428867.596894477,
+        "ev": 1.3175255863491446,
+        "ev_per_dollar": 0.6587627931745723,
+        "p_win": 0.21526992382847215,
+        "top_concentration": 1.0063009441086745,
+        "payout_ratio": 0.6625904640935119
+      }
+    },
+    {
+      "game_number": 16,
+      "name": "Holiday $100s",
+      "price": 1,
+      "metrics": {
+        "total_tickets": 6206957.02,
+        "pct_remaining": 0.24692949937139358,
+        "remaining_tickets": 1532680.789568357,
+        "ev": 0.6514177686543458,
+        "ev_per_dollar": 0.6514177686543458,
+        "p_win": 0.25248244946619464,
+        "top_concentration": 1.012434725848564,
+        "payout_ratio": 0.6045699991007832
+      }
+    },
+    {
+      "game_number": 995,
+      "name": "$200,000 Triple Play",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 6758846.27,
+        "pct_remaining": 0.3870013824119719,
+        "remaining_tickets": 2615682.8499999996,
+        "ev": 3.2551748389526667,
+        "ev_per_dollar": 0.6510349677905334,
+        "p_win": 0.23053559417572358,
+        "top_concentration": 1.29198504895194,
+        "payout_ratio": 0.6900535703410814
+      }
+    },
+    {
+      "game_number": 18,
+      "name": "Peppermint Payout",
+      "price": 5,
+      "metrics": {
+        "total_tickets": 4059470.0,
+        "pct_remaining": 0.22192171957256832,
+        "remaining_tickets": 900884.5629532539,
+        "ev": 3.2529056668407588,
+        "ev_per_dollar": 0.6505811333681517,
+        "p_win": 0.24932939161890733,
+        "top_concentration": 1.502031139517795,
+        "payout_ratio": 0.6900105186144989
+      }
+    },
+    {
+      "game_number": 981,
+      "name": "50X The Cash",
+      "price": 10,
+      "metrics": {
+        "total_tickets": 9877694.709999999,
+        "pct_remaining": 0.19640612682997163,
+        "remaining_tickets": 1940039.7599999998,
+        "ev": 6.430710987077915,
+        "ev_per_dollar": 0.6430710987077914,
+        "p_win": 0.23592454620620767,
+        "top_concentration": 1.697163620674111,
+        "payout_ratio": 0.7485810421448023
+      }
+    },
+    {
+      "game_number": 5,
+      "name": "$50 Frenzy",
+      "price": 1,
+      "metrics": {
+        "total_tickets": 9257630.34,
+        "pct_remaining": 0.37879121590982706,
+        "remaining_tickets": 3506709.0529323057,
+        "ev": 0.6273082445093471,
+        "ev_per_dollar": 0.6273082445093471,
+        "p_win": 0.22294606943403358,
+        "top_concentration": 1.319988370899887,
+        "payout_ratio": 0.604885677472406
+      }
+    },
+    {
+      "game_number": 28,
+      "name": "5X The Cash",
+      "price": 1,
+      "metrics": {
+        "total_tickets": 23546614.32,
+        "pct_remaining": 0.9026944646094152,
+        "remaining_tickets": 21255398.40695679,
+        "ev": 0.6088397757703018,
+        "ev_per_dollar": 0.6088397757703018,
+        "p_win": 0.20905122147913607,
+        "top_concentration": 1.038557382098986,
+        "payout_ratio": 0.6081018614993818
+      }
+    }
+  ],
+  "optimal_buy": [
+    {
+      "game_number": 994,
+      "name": "$25,000 Triple Play",
+      "price": 2,
+      "count": 25,
+      "spend": 50,
+      "expected_payout": 41.20974242044797
+    }
+  ],
+  "summary": {
+    "total_spend": 50,
+    "total_expected_payout": 41.20974242044797,
+    "net_expected_gain": -8.790257579552033,
+    "return_rate": 0.8241948484089593,
+    "overall_p_any_win": 0.9999106740528161
+  }
+}
