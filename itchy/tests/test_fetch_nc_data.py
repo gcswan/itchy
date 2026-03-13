@@ -1,7 +1,7 @@
 import unittest
 from pathlib import Path
 
-from scratchiq.scripts.fetch_nc_data import parse_html
+from itchy.scripts.fetch_nc_data import parse_html
 
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"

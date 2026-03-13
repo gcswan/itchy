@@ -318,7 +318,7 @@ def compute_ev_metrics(games, budget=None):
             game["ev_validation_error"] = "All top prizes claimed"
             continue
             
-        if budget is not None and game["price"] > budget:
+        if budget and game["price"] > budget:
             game["ev_validation_error"] = "Ticket price exceeds budget"
             continue
             
@@ -359,7 +359,21 @@ def compute_ev_metrics(games, budget=None):
         computed_games.append(game)
         
     computed_games.sort(key=lambda g: g["metrics"]["ev_per_dollar"], reverse=True)
-    
+
+    if not computed_games and games:
+        return {
+            "rankings": [],
+            "optimal_buy": [],
+            "error": f"All {len(games)} games were filtered out. If --budget was set, ensure it is >= the lowest ticket price ($1).",
+            "summary": {
+                "total_spend": 0,
+                "total_expected_payout": 0,
+                "net_expected_gain": 0,
+                "return_rate": 0,
+                "overall_p_any_win": 0
+            }
+        }
+
     optimal_buy = []
     budget_left = budget if budget is not None else float('inf')
     total_expected_payout = 0
