@@ -1,0 +1,14 @@
+[project]
+name = "itchy-tracker"
+version = "0.1.0"
+description = "Scratch-off purchase tracker with EV snapshots"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "psycopg[binary]>=3.2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+tracker = "src.main:run"

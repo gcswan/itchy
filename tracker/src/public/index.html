@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itchy Tracker</title>
+<style>
+  :root {
+    --bg: #1a1a2e; --surface: #16213e; --border: #0f3460;
+    --text: #e0e0e0; --muted: #888; --accent: #e94560;
+    --green: #4ecca3; --red: #e94560; --yellow: #f5c518;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 1rem; max-width: 1000px; margin: 0 auto; }
+  h1 { color: var(--accent); margin-bottom: .5rem; font-size: 1.5rem; }
+  h2 { color: var(--text); margin: 1.5rem 0 .75rem; font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: .25rem; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem; margin-bottom: 1rem; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .75rem; text-align: center; }
+  .stat .val { font-size: 1.4rem; font-weight: 700; }
+  .stat .label { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
+  .positive { color: var(--green); }
+  .negative { color: var(--red); }
+
+  form { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  label { font-size: .8rem; color: var(--muted); }
+  input, select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: .4rem .5rem; border-radius: 4px; font-size: .9rem; width: 100%; }
+  button { background: var(--accent); color: #fff; border: none; padding: .5rem 1rem; border-radius: 4px; cursor: pointer; font-size: .9rem; }
+  button:hover { opacity: .9; }
+  .btn-sm { padding: .25rem .5rem; font-size: .75rem; }
+  .btn-load { background: var(--border); margin-bottom: .5rem; }
+
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th, td { padding: .5rem .4rem; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: .75rem; text-transform: uppercase; }
+  tr.win { color: var(--green); }
+  tr.loss { color: var(--red); }
+  tr.unscratched { color: var(--muted); }
+  .actions { white-space: nowrap; }
+  .actions button { margin-left: .25rem; }
+
+  .msg { padding: .5rem; border-radius: 4px; margin: .5rem 0; font-size: .85rem; }
+  .msg.ok { background: #0a3622; color: var(--green); }
+  .msg.err { background: #3a0a0a; color: var(--red); }
+</style>
+</head>
+<body>
+
+<h1>Itchy Tracker</h1>
+
+<h2>Dashboard</h2>
+<div class="stats" id="stats"></div>
+
+<h2>Log Purchase</h2>
+<button class="btn-load" onclick="loadGames()">Load Current Games</button>
+<div id="form-msg"></div>
+<form id="purchase-form" onsubmit="return submitPurchase(event)">
+  <div>
+    <label>Game</label>
+    <select id="f-game" onchange="onGameSelect()">
+      <option value="">-- select or type below --</option>
+    </select>
+  </div>
+  <div>
+    <label>Ticket Price ($)</label>
+    <input id="f-price" type="number" step="0.01" required>
+  </div>
+  <div>
+    <label>Game Number</label>
+    <input id="f-game-number" type="number" required>
+  </div>
+  <div>
+    <label>Game Name</label>
+    <input id="f-game-name" type="text" required>
+  </div>
+  <div>
+    <label>Store Name</label>
+    <input id="f-store" type="text">
+  </div>
+  <div>
+    <label>Store Location</label>
+    <input id="f-location" type="text">
+  </div>
+  <div>
+    <label>Ticket #</label>
+    <input id="f-ticket" type="text" placeholder="e.g. 000">
+  </div>
+  <div>
+    <label>Amount Won ($)</label>
+    <input id="f-won" type="number" step="0.01" placeholder="leave blank if unscratched">
+  </div>
+  <div>
+    <label>Date</label>
+    <input id="f-date" type="date">
+  </div>
+  <div style="display:flex;align-items:end">
+    <button type="submit">Save Purchase</button>
+  </div>
+</form>
+
+<h2>Purchase History</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th><th>Game</th><th>Price</th><th>Won</th><th>Net</th>
+      <th>EV/$</th><th>Store</th><th>Ticket</th><th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="history"></tbody>
+</table>
+
+<script>
+const API = '';
+let games = [];
+
+function el(tag, text, cls) {
+  const e = document.createElement(tag);
+  if (text != null) e.textContent = String(text);
+  if (cls) e.className = cls;
+  return e;
+}
+
+async function loadGames() {
+  try {
+    const r = await fetch(API + '/api/ev/current');
+    const data = await r.json();
+    games = data.rankings || [];
+    const sel = document.getElementById('f-game');
+    while (sel.options.length > 1) sel.remove(1);
+    games.forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g.game_number;
+      opt.textContent = '#' + g.game_number + ' ' + g.name + ' ($' + g.price + ') \u2014 EV/$: ' + g.metrics.ev_per_dollar.toFixed(3);
+      sel.appendChild(opt);
+    });
+    showMsg('form-msg', 'Loaded ' + games.length + ' games', 'ok');
+  } catch (e) {
+    showMsg('form-msg', 'Failed to load games: ' + e.message, 'err');
+  }
+}
+
+function onGameSelect() {
+  const num = parseInt(document.getElementById('f-game').value);
+  const g = games.find(function(x) { return x.game_number === num; });
+  if (g) {
+    document.getElementById('f-game-number').value = g.game_number;
+    document.getElementById('f-game-name').value = g.name;
+    document.getElementById('f-price').value = g.price;
+  }
+}
+
+async function submitPurchase(e) {
+  e.preventDefault();
+  const won = document.getElementById('f-won').value;
+  const dateVal = document.getElementById('f-date').value;
+  const body = {
+    game_number: parseInt(document.getElementById('f-game-number').value),
+    game_name: document.getElementById('f-game-name').value,
+    ticket_price: parseFloat(document.getElementById('f-price').value),
+    store_name: document.getElementById('f-store').value || null,
+    store_location: document.getElementById('f-location').value || null,
+    ticket_number: document.getElementById('f-ticket').value || null,
+    amount_won: won ? parseFloat(won) : null,
+    purchased_at: dateVal ? new Date(dateVal + 'T12:00:00').toISOString() : null,
+  };
+  try {
+    const r = await fetch(API + '/api/purchases', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body),
+    });
+    if (!r.ok) throw new Error(await r.text());
+    const result = await r.json();
+    var evText = result.ev_per_dollar != null ? result.ev_per_dollar.toFixed(3) : 'N/A';
+    showMsg('form-msg', 'Saved! EV/$: ' + evText, 'ok');
+    document.getElementById('purchase-form').reset();
+    document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+    loadHistory();
+    loadStats();
+  } catch (e) {
+    showMsg('form-msg', 'Error: ' + e.message, 'err');
+  }
+}
+
+async function loadHistory() {
+  try {
+    const r = await fetch(API + '/api/purchases?limit=100');
+    const rows = await r.json();
+    const tbody = document.getElementById('history');
+    tbody.replaceChildren();
+    rows.forEach(function(p) {
+      var cls = p.amount_won === null ? 'unscratched' : (p.net_profit >= 0 ? 'win' : 'loss');
+      var tr = el('tr', null, cls);
+
+      tr.appendChild(el('td', new Date(p.purchased_at).toLocaleDateString()));
+      tr.appendChild(el('td', '#' + p.game_number + ' ' + p.game_name));
+      tr.appendChild(el('td', '$' + p.ticket_price.toFixed(0)));
+      tr.appendChild(el('td', p.amount_won !== null ? '$' + p.amount_won.toFixed(0) : '\u2014'));
+      tr.appendChild(el('td', p.net_profit !== null ? '$' + p.net_profit.toFixed(0) : '\u2014'));
+      tr.appendChild(el('td', p.ev_per_dollar !== null ? p.ev_per_dollar.toFixed(3) : '\u2014'));
+      tr.appendChild(el('td', p.store_name || '\u2014'));
+      tr.appendChild(el('td', p.ticket_number || '\u2014'));
+
+      var actionsTd = el('td', null, 'actions');
+      var editBtn = el('button', '$$', 'btn-sm');
+      editBtn.addEventListener('click', function() { editWon(p.id); });
+      var delBtn = el('button', 'x', 'btn-sm');
+      delBtn.addEventListener('click', function() { deletePurchase(p.id); });
+      actionsTd.appendChild(editBtn);
+      actionsTd.appendChild(delBtn);
+      tr.appendChild(actionsTd);
+
+      tbody.appendChild(tr);
+    });
+  } catch (e) {
+    console.error('Failed to load history:', e);
+  }
+}
+
+async function editWon(id) {
+  var val = prompt('Amount won ($):');
+  if (val === null) return;
+  await fetch(API + '/api/purchases/' + id, {
+    method: 'PATCH',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ amount_won: parseFloat(val) }),
+  });
+  loadHistory();
+  loadStats();
+}
+
+async function deletePurchase(id) {
+  if (!confirm('Delete this purchase?')) return;
+  await fetch(API + '/api/purchases/' + id, { method: 'DELETE' });
+  loadHistory();
+  loadStats();
+}
+
+function makeStatCard(value, label, cls) {
+  var card = el('div', null, 'stat');
+  card.appendChild(el('div', value, 'val' + (cls ? ' ' + cls : '')));
+  card.appendChild(el('div', label, 'label'));
+  return card;
+}
+
+async function loadStats() {
+  try {
+    var r = await fetch(API + '/api/stats/summary');
+    var s = await r.json();
+    var div = document.getElementById('stats');
+    div.replaceChildren();
+    var plClass = s.net_pl >= 0 ? 'positive' : 'negative';
+    div.appendChild(makeStatCard(s.total_purchases, 'Purchases'));
+    div.appendChild(makeStatCard('$' + s.total_spent.toFixed(0), 'Total Spent'));
+    div.appendChild(makeStatCard('$' + s.total_won.toFixed(0), 'Total Won'));
+    div.appendChild(makeStatCard('$' + s.net_pl.toFixed(0), 'Net P/L', plClass));
+    div.appendChild(makeStatCard((s.win_rate * 100).toFixed(0) + '%', 'Win Rate'));
+    div.appendChild(makeStatCard(s.avg_ev_per_dollar.toFixed(3), 'Avg EV/$'));
+    div.appendChild(makeStatCard(s.actual_return_rate.toFixed(3), 'Actual Return/$'));
+  } catch (e) {
+    console.error('Failed to load stats:', e);
+  }
+}
+
+function showMsg(id, text, type) {
+  var msgEl = document.getElementById(id);
+  msgEl.className = 'msg ' + type;
+  msgEl.textContent = text;
+  setTimeout(function() { msgEl.textContent = ''; msgEl.className = ''; }, 5000);
+}
+
+document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+loadStats();
+loadHistory();
+</script>
+</body>
+</html>
