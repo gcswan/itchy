@@ -72,6 +72,23 @@ def list_purchases(limit: int = 50, offset: int = 0, game_number: int | None = N
     return [_row_to_dict(r, COLUMNS) for r in rows]
 
 
+@router.get("/locations")
+def list_recent_locations(limit: int = 10):
+    conn = get_conn()
+    rows = conn.execute(
+        """
+        SELECT store_name, store_location
+        FROM purchases
+        WHERE store_name IS NOT NULL OR store_location IS NOT NULL
+        GROUP BY store_name, store_location
+        ORDER BY MAX(purchased_at) DESC
+        LIMIT %s
+        """,
+        (limit,),
+    ).fetchall()
+    return [{"store_name": r[0], "store_location": r[1]} for r in rows]
+
+
 @router.get("/{purchase_id}")
 def get_purchase(purchase_id: int):
     conn = get_conn()

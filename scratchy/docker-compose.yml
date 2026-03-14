@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: itchy
       POSTGRES_PASSWORD: itchy
-      POSTGRES_DB: itchy_tracker
+      POSTGRES_DB: scratchy
     ports:
       - "5434:5432"
     volumes:

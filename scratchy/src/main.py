@@ -18,7 +18,7 @@ from src.services.ev_fetcher import get_current_rankings
 load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
-log = logging.getLogger("tracker")
+log = logging.getLogger("scratchy")
 
 
 @asynccontextmanager
@@ -33,7 +33,7 @@ async def lifespan(app: FastAPI):
     close()
 
 
-app = FastAPI(title="Itchy Tracker", lifespan=lifespan)
+app = FastAPI(title="Scratchy", lifespan=lifespan)
 
 app.include_router(purchases_router)
 app.include_router(stats_router)

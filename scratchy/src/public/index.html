@@ -42,6 +42,27 @@
   .msg { padding: .5rem; border-radius: 4px; margin: .5rem 0; font-size: .85rem; }
   .msg.ok { background: #0a3622; color: var(--green); }
   .msg.err { background: #3a0a0a; color: var(--red); }
+  .suggestions {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    z-index: 100;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+  .suggestion-item {
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .suggestion-item:last-child { border-bottom: none; }
+  .suggestion-item:hover { background: var(--border); }
+  .suggestion-item .loc { font-size: 0.75rem; color: var(--muted); display: block; }
 </style>
 </head>
 <body>
@@ -73,13 +94,14 @@
     <label>Game Name</label>
     <input id="f-game-name" type="text" required>
   </div>
-  <div>
+  <div style="position:relative">
     <label>Store Name</label>
-    <input id="f-store" type="text">
+    <input id="f-store" type="text" onfocus="showSuggestions(event)" onblur="hideSuggestionsDelayed()">
+    <div id="suggestions" class="suggestions"></div>
   </div>
-  <div>
+  <div style="position:relative">
     <label>Store Location</label>
-    <input id="f-location" type="text">
+    <input id="f-location" type="text" onfocus="showSuggestions(event)" onblur="hideSuggestionsDelayed()">
   </div>
   <div>
     <label>Ticket #</label>
@@ -112,12 +134,63 @@
 <script>
 const API = '';
 let games = [];
+let locations = [];
 
 function el(tag, text, cls) {
   const e = document.createElement(tag);
   if (text != null) e.textContent = String(text);
   if (cls) e.className = cls;
   return e;
+}
+
+async function loadLocations() {
+  try {
+    const r = await fetch(API + '/api/purchases/locations');
+    locations = await r.json();
+  } catch (e) {
+    console.error('Failed to load locations:', e);
+  }
+}
+
+function showSuggestions(e) {
+  const container = document.getElementById('suggestions');
+  if (e && e.target && e.target.parentElement) {
+    e.target.parentElement.appendChild(container);
+  }
+  if (locations.length === 0) {
+    loadLocations().then(() => {
+      if (locations.length > 0) renderSuggestions();
+    });
+  } else {
+    renderSuggestions();
+  }
+}
+
+function renderSuggestions() {
+  const container = document.getElementById('suggestions');
+  container.innerHTML = '';
+  locations.forEach(l => {
+    const item = el('div', null, 'suggestion-item');
+    const name = el('strong', l.store_name || 'Unknown Store');
+    const loc = el('span', l.store_location || '', 'loc');
+    item.appendChild(name);
+    item.appendChild(loc);
+    item.addEventListener('mousedown', () => selectSuggestion(l));
+    container.appendChild(item);
+  });
+  container.style.display = 'block';
+}
+
+function hideSuggestionsDelayed() {
+  setTimeout(() => {
+    document.getElementById('suggestions').style.display = 'none';
+  }, 200);
+}
+
+function selectSuggestion(l) {
+  document.getElementById('f-store').value = l.store_name || '';
+  document.getElementById('f-location').value = l.store_location || '';
+  document.getElementById('suggestions').style.display = 'none';
 }
 
 async function loadGames() {
@@ -175,6 +248,7 @@ async function submitPurchase(e) {
     document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
     loadHistory();
     loadStats();
+    loadLocations();
   } catch (e) {
     showMsg('form-msg', 'Error: ' + e.message, 'err');
   }
@@ -270,6 +344,7 @@ function showMsg(id, text, type) {
 document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
 loadStats();
 loadHistory();
+loadLocations();
 </script>
 </body>
 </html>

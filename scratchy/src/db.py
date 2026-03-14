@@ -7,7 +7,7 @@ _conn: psycopg.Connection | None = None
 
 def _get_url() -> str:
     return os.environ.get(
-        "DATABASE_URL", "postgres://itchy:itchy@localhost:5434/itchy_tracker"
+        "DATABASE_URL", "postgres://itchy:itchy@localhost:5434/scratchy"
     )
 
 

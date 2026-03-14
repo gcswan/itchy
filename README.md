@@ -4,6 +4,9 @@ A Claude Code skill that acts as a real-time NC scratch-off lottery ticket
 advisor. It fetches live prize data from the NC Education Lottery, calculates
 expected value, and recommends optimal ticket purchases.
 
+This repo also includes a separate scratch-off purchase tracker app in
+`scratchy/`. For setup and run instructions, see [scratchy/README.md](scratchy/README.md).
+
 ## Install
 
 Run the interactive installer:
@@ -46,3 +49,19 @@ itchy/
 ├── evals/            # Test prompts
 └── tests/            # Unit tests
 ```
+
+## Scratchy
+
+The scratchy app is a small FastAPI + Postgres project for logging purchases and
+viewing stats.
+
+Quick start:
+
+```bash
+cd scratchy
+docker compose up -d
+uv sync
+uv run scratchy
+```
+
+Then open `http://localhost:8000`.

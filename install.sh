@@ -6,8 +6,6 @@ SCRIPT_DIR="$(
   cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1
   pwd
 )"
-SKILL_DIR="$SCRIPT_DIR/itchy"
-SKILL_NAME="$(basename "$SKILL_DIR")"
 
 INSTALL_MODE="symlink"
 ASSUME_YES=0
@@ -17,10 +15,11 @@ usage() {
   cat <<EOF
 Usage: $(basename "$0") [options]
 
-Install the "$SKILL_NAME" skill into one or more CLI skill directories.
+Install all skills (directories containing SKILL.md) into one or more CLI
+skill directories.
 
 Options:
-  --copy            Copy the skill instead of symlinking it
+  --copy            Copy skills instead of symlinking them
   --yes             Replace existing installs without prompting
   --tool TOOL       Install for a specific tool: claude, gemini, codex
   --help            Show this help text
@@ -152,7 +151,7 @@ prompt_for_tools() {
   local destination
   local detection
 
-  log "Install \"$SKILL_NAME\" for these CLI tools:"
+  log "Install skills for these CLI tools:"
 
   for tool in claude gemini codex; do
     display_name="$(tool_display_name "$tool")"
@@ -175,31 +174,34 @@ remove_existing_destination() {
   rm -rf "$destination"
 }
 
-install_tool() {
-  local tool="$1"
+install_skill() {
+  local skill_dir="$1"
+  local tool="$2"
+  local skill_name
   local display_name
   local destination_root
   local destination
   local existing_target
 
+  skill_name="$(basename "$skill_dir")"
   display_name="$(tool_display_name "$tool")"
   destination_root="$(tool_destination_root "$tool")"
-  destination="$destination_root/$SKILL_NAME"
+  destination="$destination_root/$skill_name"
 
   mkdir -p "$destination_root"
 
   if [[ -L "$destination" ]]; then
     existing_target="$(readlink "$destination")"
-    if [[ "$existing_target" == "$SKILL_DIR" ]]; then
-      log "$display_name: already installed at $destination"
+    if [[ "$existing_target" == "$skill_dir" ]]; then
+      log "$display_name: $skill_name already installed at $destination"
       return 0
     fi
   fi
 
   if [[ -e "$destination" || -L "$destination" ]]; then
     if [[ "$ASSUME_YES" -eq 0 ]]; then
-      if ! prompt_yes_no "$display_name already has a skill at $destination. Replace it?" n; then
-        log "$display_name: skipped"
+      if ! prompt_yes_no "$display_name already has $skill_name at $destination. Replace it?" n; then
+        log "$display_name: $skill_name skipped"
         return 0
       fi
     fi
@@ -208,12 +210,12 @@ install_tool() {
   fi
 
   if [[ "$INSTALL_MODE" == "copy" ]]; then
-    cp -R "$SKILL_DIR" "$destination"
+    cp -R "$skill_dir" "$destination"
   else
-    ln -s "$SKILL_DIR" "$destination"
+    ln -s "$skill_dir" "$destination"
   fi
 
-  log "$display_name: installed $SKILL_NAME to $destination"
+  log "$display_name: installed $skill_name to $destination"
 }
 
 parse_args() {
@@ -261,8 +263,28 @@ dedupe_tools() {
   SELECTED_TOOLS=("${deduped[@]}")
 }
 
+discover_skills() {
+  local dir
+  local skills=()
+
+  for dir in "$SCRIPT_DIR"/*/; do
+    if [[ -f "$dir/SKILL.md" ]]; then
+      skills+=("$(cd "$dir" && pwd)")
+    fi
+  done
+
+  printf '%s\n' "${skills[@]}"
+}
+
 main() {
-  [[ -f "$SKILL_DIR/SKILL.md" ]] || die "SKILL.md not found in $SKILL_DIR"
+  local skill_dirs
+  mapfile -t skill_dirs < <(discover_skills)
+
+  if [[ "${#skill_dirs[@]}" -eq 0 ]]; then
+    die "No skills found (no directories with SKILL.md)"
+  fi
+
+  log "Found skills: $(printf '%s ' "${skill_dirs[@]}" | xargs -n1 basename | paste -sd', ' -)"
 
   parse_args "$@"
 
@@ -279,8 +301,10 @@ main() {
 
   log "Install mode: $INSTALL_MODE"
 
-  for tool in "${SELECTED_TOOLS[@]}"; do
-    install_tool "$tool"
+  for skill_dir in "${skill_dirs[@]}"; do
+    for tool in "${SELECTED_TOOLS[@]}"; do
+      install_skill "$skill_dir" "$tool"
+    done
   done
 
   log ''

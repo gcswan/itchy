@@ -1,0 +1,23 @@
+{
+  "skill_name": "scratchy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here's my scratch-off ticket [attaches photo of a single scratched $5 Texas Lottery ticket showing game #2345 'CASH BLAST' with a $20 win]. Can you log this for me?",
+      "expected_output": "Extracts game number (2345), game name (CASH BLAST), ticket price ($5), and amount won ($20). Presents extracted info for confirmation. After confirmation, POSTs to http://localhost:8000/api/purchases with correct field values and shows the logged purchase summary with net profit (+$15).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I just scratched these three tickets, can you add them all to scratchy? [attaches photos of three tickets: a $10 loser, a $2 winner ($5), and a $20 winner ($100)]",
+      "expected_output": "Processes all three tickets individually, extracting game info from each photo. Presents all extracted data together for batch confirmation. After confirmation, POSTs each purchase separately to the API. Shows a session summary with total spent ($32), total won ($105), and net (+$73).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Hey, I need to log a ticket but I don't have a photo. It was game #1890 Lucky 7s, cost $2, and I won $5. Bought it at the Quick Stop on Main St.",
+      "expected_output": "Accepts the text-only input without requiring a photo. Presents the extracted info for confirmation: game_number=1890, game_name='Lucky 7s', ticket_price=2.00, amount_won=5.00, store_name='Quick Stop', store_location='Main St'. After confirmation, POSTs to the API and shows the logged purchase summary.",
+      "files": []
+    }
+  ]
+}
