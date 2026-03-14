@@ -38,7 +38,7 @@ recommendation.
 
 ## Structure
 
-```
+```bash
 itchy/
 ├── SKILL.md          # Main skill definition
 ├── references/       # Formulas and lottery-specific data
